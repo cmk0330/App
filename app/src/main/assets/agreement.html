@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="ui-page-login">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>用户协议</title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />
+		<style>
+			/* TXT文档中一句话过于长，可以让其自动换行 */
+			.pre-txt{
+				word-wrap: break-word; 
+				white-space: pre-wrap; 
+				white-space: -moz-pre-wrap;
+			}
+			/* 让TXT文档的最后一句话不被放到页面最下方的按钮挡住 */
+			.bottom{
+				margin-bottom: 105px;
+			}
+			/*把按钮放页面最下方  */
+			.footer{ 
+				position:fixed; 
+				z-index:40; 
+				width:100%; 
+				background-color:#ffffff; 
+				bottom:0px;}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<!--也是个返回按钮，mui自带的-->
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">用户协议</h1>
+		</header>
+		<div class="mui-content bottom">
+			<!--使用pre可以保持txt中的换行空格等， pre-txt保证页面自动换行显示下一行的文字 -->
+			<pre class="mui-content pre-txt" id="content3"></pre>
+		</div>
+		
+<!--		<div class="footer">-->
+<!--		&lt;!&ndash;在页面最底层放置一个返回上一层的按钮  &ndash;&gt;-->
+<!--		    <button id='know' class="mui-btn mui-btn-block mui-btn-primary" onclick="javascript:history.back();">我知道了</button>-->
+<!--		</div>-->
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<script>
+			(function($, doc) {
+				$.init();
+				$.plusReady(function() {
+					//读取TXT文档显示在页面上
+					$(function(){
+					//"agreement.txt"为用户协议文档的路径
+					$("#content3").load('android_asset/agreement.txt');
+					});
+				});
+			}(mui, document));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.cmk.app.vo.PlazaListVo.DataX" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <ImageView
+            android:id="@+id/iv_favour"
+            selected="@{data.collect}"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/ic_favour"
+            android:tint="@color/color_favout_state"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="@{data.title}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_favour"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_favour"
+            app:layout_constraintTop_toTopOf="@+id/iv_favour"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:text="@{data.desc}"
+            android:textColor="@color/text_gray_deep"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@{data.niceDate}"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_desc"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc" />
+
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@{data.author}"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_time"
+            app:layout_constraintStart_toEndOf="@+id/tv_time" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tv_equal_project"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:text="查看同类项目"-->
+<!--            android:textColor="@color/text_black"-->
+<!--            android:textSize="14sp"-->
+<!--            app:layout_constraintBaseline_toBaselineOf="@+id/tv_author"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/tv_author" />-->
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/line_gray"
+            app:layout_constraintTop_toBottomOf="@+id/tv_author" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

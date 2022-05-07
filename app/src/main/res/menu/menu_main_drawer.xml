@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/item_dark"
+            android:icon="@drawable/email"
+            android:title="深色模式" />
+
+        <item
+            android:id="@+id/item_collect_article"
+            android:icon="@drawable/email"
+            android:title="收藏文章" />
+
+        <item
+            android:id="@+id/item_share_article"
+            android:icon="@drawable/email"
+            android:title="分享文章" />
+
+        <item
+            android:id="@+id/item_collect_net"
+            android:icon="@drawable/email"
+            android:title="收藏网站" />
+
+        <item
+            android:id="@+id/item_share_project"
+            android:icon="@drawable/email"
+            android:title="分享项目" />
+
+        <item android:id="@+id/item_show_photo"
+            android:icon="@drawable/email"
+            android:title="图片展示"/>
+
+        <item android:id="@+id/item_test"
+            android:icon="@drawable/email"
+            android:title="各种Demo和测试"/>
+
+        <item
+            android:id="@+id/item_exit"
+            android:icon="@drawable/email"
+            android:title="退出登录" />
+    </group>
+
+
+</menu>

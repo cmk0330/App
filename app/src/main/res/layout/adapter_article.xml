@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.cmk.app.vo.ArticleVo.DataX" />
+
+        <variable
+            name="holder"
+            type="com.cmk.app.base.BaseViewHolder" />
+
+        <variable
+            name="viewClick"
+            type="com.cmk.app.ui.adapter.OnViewClickListener" />
+
+        <variable
+            name="adapter"
+            type="com.cmk.app.ui.adapter.ArticleAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp">
+
+        <ImageView
+            android:id="@+id/iv_favour"
+            selected="@{data.collect}"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_favour"
+            android:tint="@color/color_favout_state"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:baselineAlignBottom="true"
+            app:imageSrc="@{data.icon}"
+            app:layout_constraintStart_toEndOf="@id/iv_favour"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{data.title}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_logo"
+            app:layout_constraintTop_toTopOf="@id/iv_logo"
+            tools:ignore="MissingConstraints" />
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_tab1"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="12dp"-->
+        <!--            android:background="@drawable/shape_text_tab_red_bg"-->
+        <!--            android:paddingStart="5dp"-->
+        <!--            android:paddingEnd="5dp"-->
+        <!--            android:text="置顶"-->
+        <!--            android:visibility="gone"-->
+        <!--            android:textColor="@color/red"-->
+        <!--            android:textSize="12sp"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/iv_logo"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/tv_title" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/tv_tab2"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginStart="8dp"-->
+        <!--            android:layout_marginTop="12dp"-->
+        <!--            android:background="@drawable/shape_text_tab_red_bg"-->
+        <!--            android:paddingStart="5dp"-->
+        <!--            android:paddingEnd="5dp"-->
+        <!--            android:text="新"-->
+        <!--            android:visibility="gone"-->
+        <!--            android:textColor="@color/red"-->
+        <!--            android:textSize="12sp"-->
+        <!--            app:layout_constraintBaseline_toBaselineOf="@+id/tv_tab1"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/tv_tab1" />-->
+
+        <LinearLayout
+            android:id="@+id/ll_tags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/iv_logo"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/tv_tab"
+                isGone="@{data.tag}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_text_tab_green_bg"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:text="公众号"
+                android:textColor="@color/green"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/shape_text_tab_theme_bg"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:text='@{data.superChapterName + "/" + data.chapterName}'
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@{data.user}"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/ll_tags"
+            app:layout_constraintTop_toBottomOf="@+id/ll_tags" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{data.niceDate}"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_author"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/iv_favour"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/iv_favour" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@color/line_gray"
+            app:layout_constraintTop_toBottomOf="@+id/tv_time"
+            tools:ignore="MissingConstraints" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

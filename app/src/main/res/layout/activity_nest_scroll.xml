@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.cmk.app.widget.nestedscroll.SimpleNestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activity.test.NestScrollActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/main"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+
+            android:text="child1" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:text="child2" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:text="child3" />
+
+        <com.cmk.app.widget.nestedscroll.SimpleNestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+               android:background="@color/blue_enable"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child1" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child2" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child3" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child4" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child5" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child6" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child7" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child8" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child9" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:text="child10" />
+            </LinearLayout>
+        </com.cmk.app.widget.nestedscroll.SimpleNestedScrollView>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:text="child3" />
+    </LinearLayout>
+</com.cmk.app.widget.nestedscroll.SimpleNestedScrollView>

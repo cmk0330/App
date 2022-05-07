@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.cmk.app.viewmodel.CommentViewModel.EditModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/light_gray"
+        android:focusable="true">
+
+        <TextView
+            android:id="@+id/tv_to_comment"
+            visibility="@{model.visibility}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="评论给 xxx "
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_full_screen"
+            visibility="@{model.visibility}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_fullscreen_edit_comment"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_to_comment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_to_comment" />
+
+        <EditText
+            android:id="@+id/et_write_comment"
+            visibility="@{model.visibility}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@null"
+            android:focusableInTouchMode="true"
+            android:hint="友善的评论是交流的起点"
+            android:textColor="@color/text_black"
+            android:textColorHint="@color/text_gray"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_to_comment" />
+
+        <ImageView
+            android:id="@+id/iv_face"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_face_comment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_write_comment" />
+
+        <TextView
+            android:id="@+id/tv_comment"
+            isGone="@{model.state}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:padding="8dp"
+            android:text="友善评论的人运气都不会差"
+            android:textColor="@color/text_gray"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_face"
+            app:layout_constraintEnd_toStartOf="@+id/tv_push"
+            app:layout_constraintStart_toEndOf="@+id/iv_face"
+            app:layout_constraintTop_toTopOf="@+id/iv_face"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_push"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:enabled="false"
+            android:padding="8dp"
+            android:text="发布"
+            android:textColor="@color/color_comment_content_state"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/iv_face"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_face"
+            tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

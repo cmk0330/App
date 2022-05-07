@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="24dp"
+            android:src="@mipmap/ic_user_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView"
+            app:layout_constraintEnd_toEndOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="给阿姨倒一杯卡布奇诺给阿姨倒一杯卡布奇诺给阿姨倒一杯卡布奇诺"
+            app:layout_constraintEnd_toEndOf="@id/imageView"
+            app:layout_constraintStart_toStartOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+        <TextView
+            android:id="@+id/tv_price_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="￥"
+            android:textColor="@color/red"
+            android:textSize="15sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_price"
+            app:layout_constraintStart_toStartOf="@id/tv_desc"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="998"
+            android:textColor="@color/red"
+            android:textSize="25sp"
+            app:layout_constraintStart_toEndOf="@id/tv_price_tag"
+            app:layout_constraintTop_toBottomOf="@id/tv_desc" />
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="50dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_price" />
+
+        <TextView
+            android:id="@+id/tv_store"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:text="一心堂"
+            android:textColor="@color/text_black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/tv_version"
+            app:layout_constraintStart_toStartOf="@id/iv_logo"
+            app:layout_constraintTop_toBottomOf="@id/iv_logo"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="v2.1.0"
+            android:textColor="#999999"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_store"
+            app:layout_constraintEnd_toEndOf="@id/iv_logo"
+            app:layout_constraintStart_toEndOf="@id/tv_store"
+            app:layout_constraintTop_toTopOf="@id/tv_store"
+            tools:ignore="MissingConstraints" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="96dp"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="20dp"
+            android:background="#B6B6B6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_store"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/tv_copy_writer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text="这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案这里是文案"
+            android:textColor="#999999"
+            app:layout_constraintEnd_toEndOf="@id/tv_desc"
+            app:layout_constraintStart_toStartOf="@id/tv_desc"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

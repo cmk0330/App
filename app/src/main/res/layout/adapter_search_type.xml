@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="com.cmk.app.vo.SearchVo" />
+    </data>
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:gravity="center_horizontal"
+    android:layout_height="wrap_content"
+    android:textSize="16sp"
+    android:text="@{data.typeName}"
+    android:id="@+id/tv_type"
+    android:textColor="@color/green"
+    />
+</layout>

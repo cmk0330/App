@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/requestPatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="请求拉取补丁" />
+
+        <Button
+            android:id="@+id/requestConfig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="请求动态配置" />
+
+        <Button
+            android:id="@+id/cleanPatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="清除补丁" />
+
+        <Button
+            android:id="@+id/killSelf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="kill self" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/blue"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="old version view"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/main"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="new version view"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+</layout>
