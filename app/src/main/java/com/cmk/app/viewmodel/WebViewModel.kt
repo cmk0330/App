@@ -1,11 +1,13 @@
 package com.cmk.app.viewmodel
 
+import androidx.lifecycle.viewModelScope
 import com.cmk.app.base.BaseViewModel
 import com.cmk.app.net.Http
 import com.cmk.app.net.onCatch
 import com.cmk.app.net.onCollect
 
 import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 /**
  * @Author: romens

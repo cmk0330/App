@@ -9,8 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class ThemeViewModel :ViewModel() {
-    val primaryColor = MutableLiveData<@StyleRes Int>()
-    val currentTheme = MutableLiveData<Theme>(Theme.SYSTEM)
+
     private val _themeState = MutableStateFlow(Theme.SYSTEM)
     val themeState = _themeState.asStateFlow()
 

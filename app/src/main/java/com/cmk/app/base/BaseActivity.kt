@@ -1,6 +1,7 @@
 package com.cmk.app.base
 
 import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -92,6 +93,7 @@ open class BaseActivity : AppCompatActivity() {
                 controller.isAppearanceLightStatusBars = true
                 controller.isAppearanceLightNavigationBars = true
             }
+
     }
 
     /**

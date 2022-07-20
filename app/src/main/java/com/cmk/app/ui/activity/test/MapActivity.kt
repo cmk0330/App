@@ -13,7 +13,6 @@ import com.amap.api.location.AMapLocationClientOption
 import com.amap.api.location.AMapLocationListener
 import com.amap.api.maps.LocationSource
 import com.amap.api.maps.LocationSource.OnLocationChangedListener
-import com.amap.api.maps.MapsInitializer
 import com.amap.api.maps.model.MyLocationStyle
 import com.cmk.app.R
 import com.cmk.app.base.BaseActivity
@@ -22,8 +21,7 @@ import com.cmk.app.ext.toast
 import com.cmk.app.util.permission.askPermissions
 import com.permissionx.guolindev.PermissionX
 import com.amap.api.location.AMapLocationClientOption.AMapLocationMode
-
-
+import com.amap.api.maps.MapsInitializer
 
 
 class MapActivity : BaseActivity() {

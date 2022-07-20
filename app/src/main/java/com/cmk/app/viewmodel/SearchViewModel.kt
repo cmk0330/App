@@ -7,7 +7,6 @@ import androidx.lifecycle.asFlow
 import androidx.lifecycle.asLiveData
 import androidx.paging.PagedList
 import androidx.paging.PagingData
-import com.amap.api.mapcore.util.it
 import com.cmk.app.base.App
 import com.cmk.app.base.BaseViewModel
 import com.cmk.app.net.Http

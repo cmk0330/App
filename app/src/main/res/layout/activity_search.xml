@@ -23,7 +23,6 @@
 
         <ImageView
             android:id="@+id/iv_back"
-            isGone="@{vm.state.backVisibility}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="@{onClick}"
@@ -57,7 +56,6 @@
                 android:lines="1"
                 android:paddingStart="4dp"
                 android:paddingTop="6dp"
-                inputEmpty="@{vm.state.editIsNull}"
                 android:paddingBottom="6dp"
                 android:textColor="@color/black"
                 android:textColorHint="@color/text_gray"
@@ -70,7 +68,6 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginEnd="4dp"
                 android:src="@drawable/ic_clean_edit_gray"
-                isGone="@{vm.state.cleanVisibility}"
                 android:visibility="gone" />
         </LinearLayout>
 
@@ -98,7 +95,7 @@
             android:text="搜索指定内容"
             android:textColor="@color/text_gray"
             android:textSize="16sp"
-            isGone="@{vm.state.resultRvVisibility}"
+
             app:layout_constraintTop_toBottomOf="@+id/ll_search"
             tools:ignore="MissingConstraints" />
 
@@ -112,7 +109,7 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/tv_type_head"
             app:spanCount="3"
-            isGone="@{vm.state.typeRvVisibility}"
+
             tools:ignore="MissingConstraints" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -124,7 +121,7 @@
             android:layout_marginEnd="16dp"
             android:elevation="2dp"
             android:visibility="gone"
-            isGone="@{vm.state.resultRvVisibility}"
+
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="16dp"

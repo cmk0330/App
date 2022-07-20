@@ -2,6 +2,7 @@ package com.cmk.app.vo.test
 
 import com.cmk.app.compose.ComposeActivity
 import com.cmk.app.test.TestCoroutineActivity
+import com.cmk.app.ui.activity.VueActivity
 import com.cmk.app.ui.activity.test.*
 import com.cmk.app.widget.gallery.AlbumPreviewActivity
 
@@ -12,7 +13,7 @@ class TestItemVo() {
         this.name = name
     }
 
-    val activityNames = arrayListOf<String>(
+    val activityNames = arrayListOf(
         "MergeAdapter",
         "FabActivity",
         "DownLoadActivity",
@@ -28,7 +29,7 @@ class TestItemVo() {
         "MotionLayoutActivity",
         "ComposeActivity",
         "StateActivity",
-        "ListNotifyActivity"
+        "VueActivity"
     )
     val activity = arrayOf(
         MergeAdapterDBActivity::class.java,
@@ -46,7 +47,7 @@ class TestItemVo() {
         MotionLayoutActivity::class.java,
         ComposeActivity::class.java,
         StateActivity::class.java,
-        ListNotifyActivity::class.java
+        VueActivity::class.java
     )
     val activityMap = mapOf("MergeAdapter" to MergeAdapterDBActivity::class.java)
 }

@@ -1,20 +1,21 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = "1.4.31"
-    ext.compose_version = '1.0.0-beta02'
-    ext.coroutines_version = '1.4.2'
+    ext.kotlin_version = "1.6.20"
+    ext.compose_version = '1.2.0-alpha08'
+    ext.coroutines_version = '1.6.0'
 
     repositories {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url "https://storage.googleapis.com/download.flutter.io" }
         google()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.4'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.37'
 //        classpath 'com.android.tools.build:gradle:4.1.2'
 //        classpath "com.tencent.bugly:tinker-support:1.2.1"
         def nav_version = "2.3.0-alpha06"
@@ -30,6 +31,8 @@ allprojects {
         maven { url 'https://maven.aliyun.com/repository/public' }
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://www.jitpack.io' }
+        maven { url 'C:\\Users\\cmk03\\StudioProjects\\flutter_module\\build\\host\\outputs\\repo' }
+        maven { url "https://storage.googleapis.com/download.flutter.io" }
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }

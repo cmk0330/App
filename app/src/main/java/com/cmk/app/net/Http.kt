@@ -11,7 +11,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.components.ActivityRetainedComponent
-import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.Cache
 import okhttp3.CacheControl
 import okhttp3.Interceptor
@@ -19,16 +18,6 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.File
-import java.lang.Exception
-import java.security.SecureRandom
-import javax.net.ssl.*
-import javax.security.cert.CertificateException
-import javax.security.cert.X509Certificate
-import okhttp3.ConnectionSpec
-
-import okhttp3.TlsVersion
-import java.util.*
-
 
 /**
  * @Author: 崔明坤

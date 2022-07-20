@@ -55,21 +55,6 @@ class TestCoroutineActivity : AppCompatActivity() {
             }
 
             lifecycleScope.launchWhenCreated {
-                flow<List<ArticleVo.DataX>> {
-                    val articleVo = Http.service.articleList1(1)
-                    emit(articleVo.data.datas)
-                }.onStart {
-                    Log.e("onStart-->", "")
-                }.catch { e ->
-                    Log.e("catch-->", "${e.message}")
-                }.onCompletion {
-                    Log.e("onCompletion-->", "")
-                }.collect {
-                    Log.e("collect-->", "$it")
-                }
-            }
-
-            lifecycleScope.launchWhenCreated {
 
             }
 //            loadingProgress.setProgress(10, 25)

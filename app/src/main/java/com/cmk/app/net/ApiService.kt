@@ -189,8 +189,8 @@ interface ApiService {
     @GET("article/list/{page}/json")
     suspend fun articleList(@Path("page") page: Int): ApiResponse<ArticleVo>
 
-    @GET("article/list/{page}/json")
-    suspend fun articleList1(@Path("page") page: Int): ApiResponse<ArticleVo>
+//    @GET("article/list/{page}/json")
+//    suspend fun articleList1(@Path("page") page: Int): ApiResponse<ArticleVo>
 
     /**
      * 文章列表,paging3 demo

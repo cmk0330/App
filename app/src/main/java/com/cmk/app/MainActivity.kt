@@ -6,7 +6,6 @@ import android.os.Debug
 import android.view.LayoutInflater
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import com.cmk.app.base.BaseActivity
 import com.cmk.app.databinding.ActivityMainBinding
 import com.cmk.app.test.KotilnClassDemo
@@ -18,16 +17,6 @@ import com.cmk.app.ui.fragment.PlazaFragment
 import com.cmk.app.ui.fragment.WxFragment
 import com.cmk.app.util.Preference
 import dagger.hilt.android.AndroidEntryPoint
-import okhttp3.*
-
-import retrofit2.Call
-
-import retrofit2.SkipCallbackExecutor
-import retrofit2.http.Body
-import retrofit2.http.Headers
-import retrofit2.http.POST
-import okhttp3.ResponseBody
-import org.koin.androidx.scope.lifecycleScope
 
 
 @AndroidEntryPoint

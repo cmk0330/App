@@ -49,7 +49,7 @@ class SearchActivity : BaseActivity() {
     private val resetSet: ConstraintSet by lazy { ConstraintSet() }
     private var isResult: Boolean = false
 
-    @ExperimentalPagingApi
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.recyclerviewType.adapter = typeAdapter

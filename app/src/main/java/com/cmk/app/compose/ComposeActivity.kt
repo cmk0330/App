@@ -31,9 +31,7 @@ class ComposeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ArticleList()
-            getCurrDate()
 //            TimeUtil.test()
-
 //            AnimateAsStateDemo()
         }
     }
@@ -42,9 +40,9 @@ class ComposeActivity : AppCompatActivity() {
     @Composable
     fun ArticleList() {
         val rememberLazyListState = rememberLazyListState()
-        val lazyPagingItems = viewModel.pager.collectAsLazyPagingItems()
+        val lazyPagingItems = viewModel.getArticle().flow.collectAsLazyPagingItems()
 //        val observeAsState = viewModel.articleLiveData.observeAsState(emptyList())
-        viewModel.getArticle()
+//        viewModel.getArticle()
         Column (horizontalAlignment = Alignment.CenterHorizontally){
             EditText()
             LazyColumn(state = rememberLazyListState) {

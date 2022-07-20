@@ -11,7 +11,7 @@ class Paging3Source : PagingSource<Int, ArticleVo.DataX>() {
 
         val page = params.key ?: 0
         return try {
-            val data = Http.service.articleList1(page).data
+            val data = Http.service.articleList(page).data
             LoadResult.Page(
                 data = data.datas,
                 prevKey = if (page == 0) null else page - 1,

@@ -50,6 +50,7 @@
         <!--                tools:replace="name,resource" />-->
         <!--        </provider>-->
 
+
         <activity
             android:name="com.huawei.hms.activity.BridgeActivity"
             android:configChanges="orientation|locale|screenSize|layoutDirection|fontScale"
@@ -93,6 +94,7 @@
         <activity android:name=".ui.activity.test.MotionLayoutActivity" />
         <activity android:name=".ui.activity.test.StateActivity" />
         <activity android:name=".compose.ComposeActivity" />
+        <activity android:name=".ui.activity.VueActivity"/>
 
         <!--        &lt;!&ndash; 小米推送 &ndash;&gt;-->
         <!--        <service-->

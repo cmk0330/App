@@ -36,7 +36,6 @@ import kotlinx.coroutines.flow.collectLatest
  * @Date: 2019-11-8 9:19
  * @Desc:
  */
-@AndroidEntryPoint
 class HomeFragment : BaseFragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -55,7 +54,9 @@ class HomeFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.e("homeFragment:", viewModel.toString())
         binding.viewPager.isUserInputEnabled = false
+        binding.refresh.setPullToSecondFloorHeight(600)
         val tabTitles = arrayOf("最新博文", "最新项目")
         val fragments = ArrayList<Fragment>().apply {
             add(articleFragment)

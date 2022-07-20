@@ -1,52 +1,26 @@
 package com.cmk.app.viewmodel
 
 import android.util.Log
-import androidx.compose.runtime.collectAsState
-import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.PagingData
 import com.cmk.app.base.BaseViewModel
-import com.cmk.app.base.repository
+import com.cmk.app.config.pagingConfig
+import com.cmk.app.datasource.ArticleSource
 import com.cmk.app.datasource.Paging3Source
+import com.cmk.app.datasource.ProjectSource
 import com.cmk.app.net.*
-import com.cmk.app.repository.HomeRepository
-import com.cmk.app.util.countDown
-import com.cmk.app.util.timeOutWait
-import com.cmk.app.vo.ArticleVo
 import com.cmk.app.vo.BannerVo
-import com.cmk.app.vo.ProjectListVo
-import com.cmk.app.vo.test.GoodsDetailVo
-import dagger.hilt.android.scopes.ActivityRetainedScoped
-import kotlinx.coroutines.Dispatchers
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.lang.Exception
-import com.google.gson.GsonBuilder
-
-import com.google.gson.Gson
 import kotlinx.coroutines.flow.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.io.IOException
-
 
 /**
  * @Author: romens
  * @Date: 2019-11-1 16:46
  * @Desc:
  */
-@ActivityRetainedScoped
-class HomeViewModel @ViewModelInject constructor(val repository: HomeRepository) :
-    BaseViewModel() {
+class HomeViewModel  : BaseViewModel() {
     private val _articleScrollState = MutableStateFlow(false)
     val articleScrollState = _articleScrollState.asStateFlow()
     private val _projectScrollState = MutableStateFlow(false)
@@ -115,12 +89,14 @@ class HomeViewModel @ViewModelInject constructor(val repository: HomeRepository)
     /**
      * 文章列表
      */
-    fun getArticle() = repository.getArticle()
+    fun getArticle() =
+        Pager(config = pagingConfig(), pagingSourceFactory = { ArticleSource() })
 
     /**
      * 项目列表
      */
-    fun getProject() = repository.getProject()
+    fun getProject() =
+        Pager(config = pagingConfig(), pagingSourceFactory = { ProjectSource() })
 
     /**
      * 收藏
