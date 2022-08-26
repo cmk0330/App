@@ -1,37 +1,43 @@
 package com.cmk.app.util
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withTimeoutOrNull
+import android.util.Log
+import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.*
 import kotlin.coroutines.CoroutineContext
 
 /**
  * 倒计时
  */
 interface CountDownListener {
-    fun onProgress(count: Int): Int
+    fun onStart()
+    fun onTick(count: Int)
     fun onFinish()
 }
 
 class CountDownAction : CountDownListener {
-    private var onProgress: ((count: Int) -> Unit)? = null
+    private var onStart: (() -> Unit)? = null
+    private var onTick: ((count: Int) -> Unit)? = null
     private var onFinish: (() -> Unit)? = null
 
-    fun progress(func: ((count: Int) -> Unit)) {
-        this.onProgress = func
+    fun start(func: () -> Unit) {
+        this.onStart = func
+    }
+
+    fun tick(func: ((count: Int) -> Unit)) {
+        this.onTick = func
     }
 
     fun finish(func: () -> Unit) {
         this.onFinish = func
     }
 
-    override fun onProgress(count: Int): Int {
-        onProgress?.invoke(count)
-        return count
+    override fun onStart() {
+        onStart?.invoke()
     }
 
+    override fun onTick(count: Int) {
+        onTick?.invoke(count)
+    }
 
     override fun onFinish() {
         onFinish?.invoke()
@@ -40,31 +46,32 @@ class CountDownAction : CountDownListener {
 
 /**
  * [delay]默认是1s间隔
+ * 返回job用于取消
  */
-inline fun CoroutineScope.countDown(
-    dispatcher: CoroutineContext,
-    start: Int, end: Int, delay: Long? = 1000,
+fun CoroutineScope.countDown(
+    start: Int,
+    end: Int,
+    delay: Long? = 1000,
     listener: CountDownAction.() -> Unit
-) {
+): Job {
     val action = CountDownAction().apply(listener)
-    val out = flow<Int> {
-        if (start < end) {
-            for (index in start..end) {
-                emit(index)
-                delay?.let { kotlinx.coroutines.delay(it) }
-            }
-        } else {
-            for (index in start downTo end) {
-                emit(index)
-                delay?.let { kotlinx.coroutines.delay(it) }
+    return launch {
+        flow {
+            if (start < end) {
+                for (index in start..end) {
+                    emit(index)
+                }
+            } else {
+                for (index in start downTo end) {
+                    emit(index)
+                }
             }
         }
-    }
-    this.launch(dispatcher) {
-        out.collect {
-            action.onProgress(it)
-        }
-        action.onFinish()
+            .onEach { delay(delay!!) }
+            .onStart { action.onStart() }
+            .catch { Log.e("countDown-->", "$it") }
+            .onCompletion { action.onFinish() }
+            .collect { action.onTick(it) }
     }
 }
 
@@ -88,28 +95,5 @@ fun CoroutineScope.timeOutWait(
         if (result == null) {
             outTimeBlock.invoke()
         }
-    }
-}
-
-object PrintlnTime {
-
-    private var start: Long = 0
-    private var end: Long = 0
-    fun getStart(): Long {
-        start = System.currentTimeMillis()
-        println("TimeCount--startTime-->$start")
-        return start
-    }
-
-    fun getEnd(): Long {
-        end = System.currentTimeMillis()
-        println("TimeCount--  endTime-->$end")
-        return end
-    }
-
-    fun print(): Long {
-        val t = end - start
-        println("TimeCount--consumeTime-->$t")
-        return t
     }
 }
